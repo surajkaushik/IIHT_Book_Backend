@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean name="employee1" class="com.core.SpringCoreDemo.collection.Employee">
+		<property name="EmployeeName" value="Rakesh Sharma" />
+		<property name="phones">
+			<list>
+				<value>7899456428</value>
+				<value>7899456424</value>
+				<value>6000000000</value>
+			</list>
+		</property>
+		<property name="addresses">
+			<set>
+				<value>Pune</value>
+				<value>Bangalore</value>
+				<value>Ahemdabad</value>
+			</set>
+		</property>
+		<property name="courses">
+			<map>
+				<entry key="BTECH" value="NIT" />
+				<entry key="MBA" value="NMIMS" />
+				<entry key="PHD" value="DU" />
+			</map>
+		</property>
+		<property name="props">
+			<props>
+				<prop key="Role">Developer </prop>
+				<prop key="technology">Java and JAvascript </prop>
+			</props>
+
+		</property>
+	</bean>
+
+	<bean name="employee2" class="com.core.SpringCoreDemo.collection.Employee">
+		<property name="EmployeeName" value="Vinay Verma" />
+		<property name="phones">
+			<list>
+				<value>058941513849</value>
+				<value>491564981691</value>
+				<value>6000000000</value>
+				<null />
+			</list>
+		</property>
+		<property name="addresses">
+			<set></set>
+		</property>
+		<property name="courses">
+			<map>
+				<entry key="BTECH" value="NIT" />
+				<entry key="MBA" value="NMIMS" />
+				<entry key="PHD" value="DU" />
+			</map>
+		</property>
+	</bean>
+
+
+</beans>
