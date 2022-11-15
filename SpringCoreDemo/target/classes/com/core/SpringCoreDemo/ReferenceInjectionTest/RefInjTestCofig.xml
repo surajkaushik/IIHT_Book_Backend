@@ -4,8 +4,6 @@
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
-
-
 <bean class="com.core.SpringCoreDemo.ReferenceInjectionTest.StudentSubjects name="studentSubjects1">
 <property name="subject1" value="Maths"/>
 <property name="subject2" value="Hindi"/>

@@ -16,6 +16,8 @@ public class RefInjTest {
 		System.out.println(s.getStudentSubjects().getSubject3());
 		System.out.println(s.getStudentSubjects().getSubject4());
 		
+		//#Day2 Assignment
+		
 	}
 
 }
