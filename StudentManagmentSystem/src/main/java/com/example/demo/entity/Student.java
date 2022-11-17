@@ -26,6 +26,13 @@ public class Student {
 		this.standard = standard;
 	}
 	
+	public Student(String sName, String sEmail, Integer standard) {
+		super();
+		this.sName = sName;
+		this.sEmail = sEmail;
+		this.standard = standard;
+	}
+	
 	public Integer getsId() {
 		return sId;
 	}
