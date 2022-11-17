@@ -7,6 +7,7 @@ public class User {
 	private String emailId;
 	private String paymentId;
 	private String subscriptionId;
+	
 	public UserType getUserType() {
 		return userType;
 	}
