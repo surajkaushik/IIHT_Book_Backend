@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +31,10 @@ public class StudentController {
 		Optional<Student> s=istudentService.getStudent(id);
 		return s;
 	}
+	
+	@GetMapping("/allstudents")
+	List<Student> allStudents(){
+		return istudentService.getAllStudents();
+	}
 }
+	
