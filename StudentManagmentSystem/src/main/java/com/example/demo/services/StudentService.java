@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class StudentService implements IStudentService{
 	public Integer saveStudent(Student student) {
 		Student savedStuednt=iStudentRepository.save(student);
 		return savedStuednt.getsId();	
+	}
+
+	@Override
+	public Optional<Student> getStudent(Integer id) {
+		return iStudentRepository.findById(id);
 	}
 
 }
