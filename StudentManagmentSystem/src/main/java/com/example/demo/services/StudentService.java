@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Student;
+import com.example.demo.exceptionHandler.ResourceNotFoundException;
 import com.example.demo.repo.IStudentRepository;
 
 @Service
@@ -30,6 +31,25 @@ public class StudentService implements IStudentService{
 	@Override
 	public List<Student> getAllStudents() {
 		return iStudentRepository.findAll();
+	}
+
+	@Override
+	public void deleteStudent(Integer id) {
+		iStudentRepository.deleteById(id);
+		
+	}
+
+	@Override
+	public Student updateStudent(Student student, Integer id) {
+		Student existingStudent = iStudentRepository.findById(id).orElseThrow(
+				()->new ResourceNotFoundException("Student", "ID", id));
+		existingStudent.setsName(student.getsName());
+		existingStudent.setsEmail(student.getsEmail());
+		existingStudent.setStandard(student.getStandard());
+		
+		iStudentRepository.save(existingStudent);
+		
+		return existingStudent;
 	}
 
 }
