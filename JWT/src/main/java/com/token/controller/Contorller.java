@@ -1,5 +1,4 @@
 package com.token.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -15,34 +14,41 @@ import com.token.entity.JwtResponse;
 import com.token.services.UserService;
 import com.token.utility.JwtUtility;
 
+
 @RestController
-public class Controller {
-	
+public class Contorller {
+
 	@Autowired
 	private JwtUtility jwtUtility;
-	
+
 	@Autowired
 	private AuthenticationManager authenticationManager;
-	
+
 	@Autowired
 	private UserService userService;
-	
-	
+
 	@GetMapping("/")
 	public String home() {
-		return "Hello you are at home";
+		return "Hello you have unlocked you home so you can see this data";
 	}
-	
+
 	@PostMapping("/auth")
 	public JwtResponse authenticate(@RequestBody JwtRequest jwtRequest) throws Exception {
+
 		try {
-			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getUsername(), jwtRequest.getPassword()));
-		}catch(BadCredentialsException e) {
-			throw new Exception("Invalid Credentials");
+			authenticationManager.authenticate(
+					new UsernamePasswordAuthenticationToken(jwtRequest.getUsername(), jwtRequest.getPassword()));
+
+		} catch (BadCredentialsException e) {
+			throw new Exception("Invalid credentials");
 		}
+
 		final UserDetails userDetails = userService.loadUserByUsername(jwtRequest.getUsername());
-		final String token= jwtUtility.generateToken(userDetails);
-		return new JwtResponse(token);
+
+		final String token = jwtUtility.generateToken(userDetails);
+
+		return  new JwtResponse(token);
+
 	}
 
 }
